@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Pass/Fail Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+        .box {
+            width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px gray;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            font-size: 16px;
+        }
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Student Pass/Fail Prediction</h2>
+
+    <form action="/predict" method="post">
+        <input type="number" name="math" placeholder="Math Marks" required>
+        <input type="number" name="science" placeholder="Science Marks" required>
+        <input type="number" name="english" placeholder="English Marks" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h3>Average Marks: {{ avg }}</h3>
+        <h3>Result: {{ prediction }}</h3>
+    {% endif %}
+</div>
+
+</body>
+</html>
